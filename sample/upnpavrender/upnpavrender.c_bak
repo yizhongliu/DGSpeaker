@@ -1,0 +1,266 @@
+#include <string.h>
+
+#include <cybergarage/upnp/std/av/cmediarenderer.h>
+//#include <cybergarage/upnp/std/av/cprotocolinfo.h>
+//#include <cybergarage/upnp/std/av/logging.h>
+#include <gstreamer_0.10/output_gstreamer.h>
+
+//#include "logging.h"
+//#include "output_gstreamer.h"
+
+
+CgUpnpAvRenderer *gdmr = NULL;  //add by llm
+
+/*   检查ip线程while循环退出判断变量  */
+int checkIpThreadExit = 1; 
+
+
+#if 0
+static gboolean show_version = FALSE;
+static gboolean show_devicedesc = FALSE;
+static gboolean show_connmgr_scpd = FALSE;
+static gboolean show_control_scpd = FALSE;
+static gboolean show_transport_scpd = FALSE;
+static gchar *ip_address = NULL;
+static gchar *uuid = "BA2E90A0-3669-401a-B249-F85196ADFC44";
+static gchar *friendly_name = PACKAGE_NAME;
+
+
+static GOptionEntry option_entries[] = {
+	{ "version", 0, 0, G_OPTION_ARG_NONE, &show_version,
+	  "Output version information and exit", NULL },
+	{ "ip-address", 'I', 0, G_OPTION_ARG_STRING, &ip_address,
+	  "IP address on which to listen", NULL },
+	{ "uuid", 'u', 0, G_OPTION_ARG_STRING, &uuid,
+	  "UUID to advertise", NULL },
+	{ "friendly-name", 'f', 0, G_OPTION_ARG_STRING, &friendly_name,
+	  "Friendly name to advertise", NULL },
+	{ "dump-devicedesc", 0, 0, G_OPTION_ARG_NONE, &show_devicedesc,
+	  "Dump device descriptor XML and exit", NULL },
+	{ "dump-connmgr-scpd", 0, 0, G_OPTION_ARG_NONE, &show_connmgr_scpd,
+	  "Dump Connection Manager service description XML and exit", NULL },
+	{ "dump-control-scpd", 0, 0, G_OPTION_ARG_NONE, &show_control_scpd,
+	  "Dump Rendering Control service description XML and exit", NULL },
+	{ "dump-transport-scpd", 0, 0, G_OPTION_ARG_NONE, &show_transport_scpd,
+	  "Dump A/V Transport service description XML and exit", NULL },
+	{ NULL }
+};
+
+static int process_cmdline(int argc, char **argv)
+{
+	int result = -1;
+	GOptionContext *ctx;
+	GError *err = NULL;
+	int rc;
+
+	ctx = g_option_context_new("- GMediaRender");
+	g_option_context_add_main_entries(ctx, option_entries, NULL);
+
+	if (rc != 0) {
+		goto out;
+	}
+
+	if (!g_option_context_parse (ctx, &argc, &argv, &err)) {
+		g_print ("Failed to initialize: %s\n", err->message);
+		g_error_free (err);
+		goto out;
+	}
+
+
+	result = 0;
+
+out:
+//	LEAVE();
+	return result;
+}
+#endif
+
+#if 0
+CgUpnpAvRenderer * getUpnpAvRender(void)
+{
+    return gdmr;
+}
+#endif
+
+
+/***************************************************
+* 检测ip变化,若检测到新ip,则增加http,ssdp监听线程
+***************************************************/
+void* checkIpThread (CgUpnpDevice *device)
+{
+   CgNetworkInterfaceList *current = NULL;
+   CgNetworkInterfaceList *old = NULL;
+   CgNetworkInterface *netIfOld = NULL;
+   CgNetworkInterface *netIfNew = NULL;
+   CgNetworkInterface *tmp = NULL;
+   BOOL found;
+
+   int httpPort;
+   char *bindAddr = NULL;
+   CgHttpServer *httpServer = NULL;
+   CgUpnpSSDPServer *ssdpServer = NULL;   
+   CG_HTTP_LISTENER httpListener = NULL;
+
+   if(device == NULL)
+   {
+       printf("device is NULL!!!!!!!!!!\n");
+       return; 
+   }
+   
+
+   while(checkIpThreadExit == 1)
+   {
+       usleep(1000*1000);
+	   
+       current = cg_net_interfacelist_new();
+       old = device->ifCache;
+
+       if (current == NULL || old == NULL )
+       {
+		    continue;
+       }
+   
+       cg_net_gethostinterfaces(current);
+       tmp = cg_net_interfacelist_gets(current);
+	   
+       while (tmp != NULL)
+       {	
+		    found = FALSE;
+
+			netIfNew = tmp; 
+			tmp = cg_net_interface_next(netIfNew);	
+		
+		    for (netIfOld = cg_net_interfacelist_gets(old); netIfOld != NULL;
+		         netIfOld = cg_net_interface_next(netIfOld))
+		    {
+			    if (cg_net_interface_cmp(netIfOld, netIfNew) == 0)
+			    {
+				    found = TRUE;
+				    break;
+			    }
+		    }
+		
+		    /* New interface was not found in old ones,*/
+		    if (found == FALSE)
+		    {
+			    printf("[notify] new network interface add\n");
+			    printf("++++++++++++++++++++++++++++++++++\n");
+			    printf("++++++++++++++++++++++++++++++++++\n");
+			    printf("++++++++++++++++++++++++++++++++++\n");
+				printf("new interfacd is %s\n",cg_net_interface_getaddress(netIfNew));
+				
+				httpPort = cg_upnp_device_gethttpport(device);
+				bindAddr = cg_net_interface_getaddress(netIfNew);
+		        if (cg_strlen(bindAddr) <= 0)
+			        break;
+
+                /*rebuild interfaces cache*/
+			    if (device->ifCache == NULL)
+		            device->ifCache = cg_net_interfacelist_new();
+	            cg_net_gethostinterfaces(device->ifCache);
+
+				
+				/*start new httpServer*/
+		        httpServer = cg_http_server_new();
+				if(httpServer == NULL)
+				{
+				    printf("httpServer is NULL!!!!!!!!\n");
+					break;
+				}
+		        if (cg_http_server_open(httpServer, httpPort, bindAddr) == FALSE) {
+					 printf("http_server_open error!!!!!!!!!!!!\n");
+			         break;
+		        }
+		        cg_http_serverlist_add(device->httpServerList, httpServer);
+				cg_http_server_setuserdata(httpServer, device);
+				if (httpListener == NULL)
+		        httpListener = cg_upnp_device_httprequestrecieved;
+				cg_http_server_setlistener(httpServer, httpListener);
+				cg_http_server_start(httpServer);
+
+                /*start new ssdpServer*/
+				ssdpServer = cg_upnp_ssdp_server_new();
+				if(ssdpServer == NULL)
+				{
+				    printf("ssdpServer is NULL!!!!!!!!\n");
+					break;
+				}
+		        if (cg_upnp_ssdp_server_open(ssdpServer, bindAddr) == FALSE) 
+				{
+			       cg_upnp_ssdp_server_delete(ssdpServer);
+			       break;
+		        }
+		        cg_upnp_ssdp_serverlist_add(device->ssdpServerList, ssdpServer);
+				cg_upnp_ssdp_server_setuserdata(ssdpServer, device);
+				cg_upnp_ssdp_server_setlistener(ssdpServer, cg_upnp_device_ssdplistener);
+                cg_upnp_ssdp_server_start(ssdpServer);
+				
+			    cg_net_interfacelist_delete(current);
+
+				/*notify alive*/
+				cg_upnp_device_announce(device);
+				
+			    break;
+		    }
+	    }//end while (current != NULL)
+	    
+        if (found == TRUE)
+        {
+            cg_net_interfacelist_delete(current);
+        }
+		
+   	}//end while(1)
+  
+}
+
+
+/****************************************
+* main
+****************************************/
+
+int main(int argc, char *argv[])
+{
+    int ret;
+    CgUpnpAvRenderer *dmr = NULL;
+//	CgUpnpAvProtocolInfo * protocolInfo;
+//	mime_type *entry = NULL;
+
+    /*gstreamer init*/
+    ret = process_cmdline(argc, argv);
+    if (ret != 0) 
+    {
+	goto out;
+    }
+
+    dmr = cg_upnpav_dmr_new();
+
+    ret = output_gstreamer_init(dmr);
+    if (ret != 0)
+    {
+	goto out;
+    }
+
+    /*dmr init*/
+//    dmr = cg_upnpav_dmr_new();
+//	gdmr = dmr;
+
+    cg_upnpav_dmr_start(dmr);
+
+    /*创建线程，用于检测ip和连接发生变化*/
+	pthread_t checkIpThreadId;
+	if(-1==pthread_create(&checkIpThreadId, NULL, checkIpThread, dmr->dev))
+	{	
+		fprintf(stderr, "Create  checkIpThread failed !\n");
+	}
+   
+    output_loop();
+	
+    while(1) 
+    {
+	cg_sleep(1000);
+    }
+
+out:
+    cg_upnpav_dmr_stop(dmr);
+}
+

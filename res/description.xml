@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns="urn:schemas-upnp-org:device-1-0" xmlns:dlna="urn:schemas-dlna-org:device-1-0">
+ <specVersion>
+    <major>1</major>
+    <minor>0</minor>
+ </specVersion>
+ <device>
+    <deviceType>urn:schemas-upnp-org:device:MediaRenderer:1</deviceType>
+    <friendlyName> TCL dlna Speaker</friendlyName>
+    <manufacturer>TCL</manufacturer>
+    <manufacturerURL>http://www.TCL.org</manufacturerURL>
+    <modelDescription>CyberGarage</modelDescription>
+    <modelName>Cyber Garage Media Renderer</modelName>
+    <modelNumber>1.0</modelNumber>
+    <serialNumber>123456789</serialNumber>
+    <UDN>uuid:6cc4ef98-1dd2-11b2-81ce-ace074a3f966</UDN>
+    <modelURL>http://www.TCL.org</modelURL>
+    <dlna:X_DLNADOC xmlns:dlna="urn:schemas-dlna-org:device-1-0">DMR-1.50</dlna:X_DLNADOC>
+    <serviceList>
+       <service>
+          <serviceType>urn:schemas-upnp-org:service:RenderingControl:1</serviceType>
+          <serviceId>urn:upnp-org:serviceId:RenderingControl</serviceId>
+          <SCPDURL>/service/RenderingControl1.xml</SCPDURL>
+          <controlURL>/service/RenderingControl_control</controlURL>
+          <eventSubURL>/service/RenderingControl_event</eventSubURL>
+       </service>
+       <service>
+          <serviceType>urn:schemas-upnp-org:service:ConnectionManager:1</serviceType>
+          <serviceId>urn:upnp-org:serviceId:ConnectionManager</serviceId>
+          <SCPDURL>/service/ConnectionManager1.xml</SCPDURL>
+          <controlURL>/service/ConnectionManager_control</controlURL>
+          <eventSubURL>/service/ConnectionManager_event</eventSubURL>
+       </service>
+       <service>
+          <serviceType>urn:schemas-upnp-org:service:AVTransport:1</serviceType>
+          <serviceId>urn:upnp-org:serviceId:AVTransport</serviceId>
+          <SCPDURL>/service/AVTransport1.xml</SCPDURL>
+          <controlURL>/service/AVTransport_control</controlURL>
+          <eventSubURL>/service/AVTransport_event</eventSubURL>
+       </service>
+    </serviceList>
+ </device>
+</root>

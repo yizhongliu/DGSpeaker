@@ -1,0 +1,30 @@
+noinst_PROGRAMS = upnpavrender
+
+GST_CFLAGS = -I/usr/include/gstreamer-0.10 -I/usr/include/glib-2.0 -I/usr/lib/i386-linux-gnu/glib-2.0/include -I/usr/include/libxml2
+
+GST_LIBS = -lpthread -lgstreamer-0.10 -lgobject-2.0 -lgmodule-2.0 -lgthread-2.0 -lrt -lglib-2.0 -lxml2
+
+INCLUDES = -I$(top_srcdir)/include -I../ -I../../../common $(GST_CFLAGS)
+
+noinst_HEADERS = \
+	../../common/ckeyboard.h \
+        ../logging.h \
+        ../output_gstreamer.h 
+
+
+
+upnpavrender_SOURCES = \
+	../../common/ckeyboard.c \
+	../upnpavrender.c \
+        ../output_gstreamer.c \
+        ../cavtransport_service.c \
+        ../cconnectionmgrr_service.c \
+        ../cmediarenderer_device.c \
+        ../crenderingcontrol_service.c
+
+
+if HAVE_LIBTOOL
+upnpavrender_LDADD = -lclinkc ../../../lib/unix/libclinkcav.la 
+else
+upnpavrender_LDADD = -lclinkc ../../../lib/unix/libclinkcav.a 
+endif

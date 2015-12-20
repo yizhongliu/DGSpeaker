@@ -1,0 +1,294 @@
+cconnectionmgr_service.lo: \
+ ../../src/cybergarage/upnp/std/av/server/cconnectionmgr_service.c \
+ ../../config.h ../../include/cybergarage/upnp/std/av/cmediaserver.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cupnp.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/typedef.h \
+ /usr/include/stdio.h /usr/include/features.h \
+ /usr/include/x86_64-linux-gnu/bits/predefs.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cupnp_function.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cupnp_status.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/util/cstring.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cupnp_limit.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cdevice.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/xml/cxml.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/util/clist.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/util/cmutex.h \
+ /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/sched.h /usr/include/xlocale.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/util/cthread.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/util/ccond.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/util/ctime.h \
+ /usr/include/signal.h /usr/include/x86_64-linux-gnu/bits/signum.h \
+ /usr/include/x86_64-linux-gnu/bits/siginfo.h \
+ /usr/include/x86_64-linux-gnu/bits/sigaction.h \
+ /usr/include/x86_64-linux-gnu/bits/sigcontext.h \
+ /usr/include/x86_64-linux-gnu/bits/sigstack.h \
+ /usr/include/x86_64-linux-gnu/sys/ucontext.h \
+ /usr/include/x86_64-linux-gnu/bits/sigthread.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/http/chttp.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/net/csocket.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/net/curl.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/net/curi.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/util/cdictionary.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/net/cinterface.h \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h /usr/include/netinet/in.h \
+ /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/arpa/inet.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cservice.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/caction.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cargument.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cstatevariable.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/ssdp/cssdp_server.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/ssdp/cssdp.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/event/csubscriber.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cicon.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/ccontrolpoint.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/event/cevent.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/event/cproperty.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/event/cnotify.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/soap/csoap.h \
+ /home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/control/ccontrol.h \
+ ../../include/cybergarage/upnp/std/av/cupnpav.h \
+ ../../include/cybergarage/upnp/std/av/cdidl.h \
+ ../../include/cybergarage/upnp/std/av/ccontent.h \
+ ../../include/cybergarage/upnp/std/av/cresource.h \
+ ../../include/cybergarage/upnp/std/av/cmd5.h \
+ ../../include/cybergarage/upnp/std/av/cprotocolinfo.h \
+ ../../include/cybergarage/upnp/std/av/cmediarenderer.h \
+ ../../include/cybergarage/upnp/std/av/ctrackinfo.h
+
+../../config.h:
+
+../../include/cybergarage/upnp/std/av/cmediaserver.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cupnp.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/typedef.h:
+
+/usr/include/stdio.h:
+
+/usr/include/features.h:
+
+/usr/include/x86_64-linux-gnu/bits/predefs.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stddef.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdarg.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigset.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/x86_64-linux-gnu/sys/sysmacros.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cupnp_function.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cupnp_status.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/util/cstring.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cupnp_limit.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.6/include/stdint.h:
+
+/usr/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cdevice.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/xml/cxml.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/util/clist.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/util/cmutex.h:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/util/cthread.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/util/ccond.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/util/ctime.h:
+
+/usr/include/signal.h:
+
+/usr/include/x86_64-linux-gnu/bits/signum.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigaction.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigcontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigstack.h:
+
+/usr/include/x86_64-linux-gnu/sys/ucontext.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigthread.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/http/chttp.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/net/csocket.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/net/curl.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/net/curi.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/util/cdictionary.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/net/cinterface.h:
+
+/usr/include/x86_64-linux-gnu/sys/socket.h:
+
+/usr/include/x86_64-linux-gnu/sys/uio.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio.h:
+
+/usr/include/x86_64-linux-gnu/bits/socket.h:
+
+/usr/include/x86_64-linux-gnu/bits/sockaddr.h:
+
+/usr/include/x86_64-linux-gnu/asm/socket.h:
+
+/usr/include/asm-generic/socket.h:
+
+/usr/include/x86_64-linux-gnu/asm/sockios.h:
+
+/usr/include/asm-generic/sockios.h:
+
+/usr/include/netinet/in.h:
+
+/usr/include/x86_64-linux-gnu/bits/in.h:
+
+/usr/include/arpa/inet.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cservice.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/caction.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cargument.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cstatevariable.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/ssdp/cssdp_server.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/ssdp/cssdp.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/event/csubscriber.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/cicon.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/ccontrolpoint.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/event/cevent.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/event/cproperty.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/event/cnotify.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/soap/csoap.h:
+
+/home/llm/project/protocol/clinkc-code/include/cybergarage/upnp/control/ccontrol.h:
+
+../../include/cybergarage/upnp/std/av/cupnpav.h:
+
+../../include/cybergarage/upnp/std/av/cdidl.h:
+
+../../include/cybergarage/upnp/std/av/ccontent.h:
+
+../../include/cybergarage/upnp/std/av/cresource.h:
+
+../../include/cybergarage/upnp/std/av/cmd5.h:
+
+../../include/cybergarage/upnp/std/av/cprotocolinfo.h:
+
+../../include/cybergarage/upnp/std/av/cmediarenderer.h:
+
+../../include/cybergarage/upnp/std/av/ctrackinfo.h:
