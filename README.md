@@ -1,6 +1,6 @@
 # DGSpeaker
 DMR
 
-base on
-cyberlink for c 
-gstreamer
+base on:
+1 cyberlink for c 
+2 gstreamer
